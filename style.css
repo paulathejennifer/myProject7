@@ -1,149 +1,73 @@
-* {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    background: #d8d8d8;
-    color: rgba(0,0,0,0.54);
-    font-size: 14px;
-    line-height: 23px;
-  }
-  .container-block {
-    background: #999;
-    width: 750px;
-    margin: 0 auto;
-    
-    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    border-radius: 5px;
-  }
-  @keyframes xfade{
-    25% {
-      opacity:1;
-    }
-    40% {
-      opacity:0;
-    }
-  }
-  @keyframes fade{
-    20% {
-     visibility: visible;
-    }
-   30% {
-      visibility: hidden;
-    }
-  }
-  
-
-  
-  
-
-  .image-holder {height: 300px; width: 100%;}
-  .image-holder img{
-     width: 100%;
-  }
-  .image-holder .image-content-slide { 
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 750px;
-    transform: translate(-50%, -50%);
-    animation:xfade;
-    opacity:0;
-  }
-  .image-holder i {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-left: 40%;
-    margin-top: auto;
-    padding-right: 12px;
-    left: 0;
-    bottom: -30px;
-    z-index: 1000;
-    background: #f48b00;
-    animation:fade ;
-    visibility: hidden;
-  }
-  .image-holder .thumbnail-highlted-three {
-    animation-delay: 0s;
-  }
-  .image-holder .thumbnail-highlted-two {
-    margin-left: 47.5%; 
-    animation-delay: 4s;
-  }
-  .image-holder .thumbnail-highlted-one {
-    margin-left: 55%;
-    animation-delay: 8s;
-  }
-  /* @for $index from 1 to $images + 1{
-    .image-content-slide:nth-child(#{$index}){
-      animation-delay:#{$total_animation_time - $time_per_image * $index}s
-    }
-  } */
-  .image-holder { 
-    position: relative;
-    text-align: left;
-    font-size: 0;
-    height: 500px;
-  }
-  .thumbnail-tab {
-    position: fixed;
-    left: -9999px;
-  }
-  .thumbnails-block {
-    background: #3a0303;
-    width: 100%;
-    margin: 0 auto;
-    padding: 10px 0px;
+body{
+    margin: 0;
     overflow: hidden;
+}
+.slider {
     position: relative;
-    height: 38px;  
   }
-  .slide-thumbnail{
-    width: 20px;
-    height: 20px;
-    background:#fff;
-    border-radius:50%;
-    display: inline-block;
-    margin-right: 5px;
-    margin-left: 5px;
-    cursor: pointer;
-    box-shadow: 0 0 5px 0px #bdbdbd inset;
-    
+  
+  .slider img {
+    filter: brightness(0.3);
+    width: 100%;
+    height: 930px;
     position: absolute;
-    margin-left: 40%;
-    margin-top: auto;
-    padding-right: 12px;
+    top: 0;
     left: 0;
-    top: 10px;  
-  }
-  #slide-two-header {
-    margin-left: 47.5%; 
-  }
-  #slide-three-header {
-    margin-left: 55%; 
+    z-index: 1;
+    transition: all 0.5s ease;
   }
 
-   .thumbnail-tab:checked ~ .image-holder .image-content-slide{
-     width: 100%;
-     display: none;
-     animation: none;
-     opacity:1;   
+
+  .home-content h1{
+    transform: translate(180%, 250%);
+    text-align: center;
+    font-size: 120px;
+    position: absolute;
+    font-family: "Dancing Script", cursive;
+    color: aliceblue;
+    font-weight: 100;
+    z-index: 2;
+    margin: 0px;
+
+    
   }
-  .thumbnail-tab:checked ~ .image-holder .thumbnail-highlted {
-    display: none;
+.home-content nav{
+    transform: translate(150%, 1300%);
+    position: absolute;
+    z-index: 3;
+    background-color: aliceblue;
+    border: 2px solid wheat;
+    padding-right: 1cm;
+    border-radius: 20px;
+    animation: zoom-in-zoom-out 11s ease infinite;
+}
+.home-content ul{
+    list-style: none;
+    display: flex;
+    gap: 1cm;
+    cursor: pointer;
+    top: 20px;
+ 
+}
+.home-content img{
+    width: 50px;
+    height: 50px;
+    transform: translate(820%, 200%);
+    transform: rotate(20deg);
+
+}
+
+
+  
+  @keyframes zoom-in-zoom-out {
+    0% {
+      scale: 100%;
+    }
+    50% {
+      scale: 102%;
+    }
+    100% {
+      scale: 100%;
+    }
   }
-  #slide-one:checked ~ .image-holder #slide-one-image,
-  #slide-two:checked ~ .image-holder #slide-two-image,
-  #slide-three:checked ~ .image-holder #slide-three-image
-  {
-    display: block;
-  }
-  #slide-one:checked ~ .thumbnails-block #slide-one-header,
-  #slide-two:checked ~ .thumbnails-block #slide-two-header,
-  #slide-three:checked ~ .thumbnails-block #slide-three-header {
-    background: #f48b00;
-  }
+  
